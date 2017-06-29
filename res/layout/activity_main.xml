@@ -2,15 +2,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+  	 xmlns:app="http://schemas.android.com/apk/res/com.zzh.functiondemo">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+    <com.zzh.functiondemo.view.TopBar 
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        app:title="自定义标题栏"
+        app:titleTextSize="10sp"
+        app:titleTextColor="#123412"
+        
+        app:leftText="返回"
+        app:leftTextColor="@android:color/black"
+        app:leftBackground="#00ff00"
+        
+        app:rightText="更多"
+        app:rightTextColor="#ff0000"
+        app:rightBackground="#00ff00"
+        />
 
 </RelativeLayout>
