@@ -3,9 +3,11 @@ package com.zzh.functiondemo.view;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -137,8 +139,11 @@ public class TopBar extends RelativeLayout {
 		void rightClick();
 	}
 
-	
-
+	/**
+	 * 设置两个按钮的显示和隐藏
+	 * @param id
+	 * @param flag
+	 */
 	public void setButtonVisable(int id,boolean flag){
 		if (flag) {
 			if (id == LEFT_BUTTON) {
