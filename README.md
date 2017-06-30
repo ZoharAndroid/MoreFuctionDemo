@@ -1,9 +1,9 @@
 # MoreFuctionDemo
 发现各种各样的功能，然后在此基础上测试的Demo。自己阅读的书籍上的代码的演练和测试。
 
-#阅读书/参考书**《Android群英传》**
+#阅读书/参考书《Android群英传》
 
-##1、自定义控件##
+## 1、自定义控件##
 通常情况下，有以下三种方法来实现自定义的控件：
 
 - 对现有控件进行拓展
@@ -19,13 +19,13 @@
 - onLayout(boolean changed, int l, int t, int r, int b) ：确定显示的位置
 - onTouchEvent(MotionEvent event) ： 触摸事件
 
-###1.1 对现有控件进行拓展
+### 1.1 对现有控件进行拓展
 这是一个非常重要的自定义View方法，它可以在原生控件的基础上进行拓展，增加新的功能，修改显示UI等。一般来说，可以在onDraw（）方法中对原生控件行为进行拓展。
 
-###1.2 对现有控件进行拓展
+### 1.2 对现有控件进行拓展
 创建复合控件可以很好创建出具有**重用功能**的控件集合。这种方式通常需要继承一个合适的ViewGroup，再跟它添加指定的功能控件，从而组合成新的复合控件。通过这种方法创建的控件，一般回个它指定一些可以配置的属性，让控件具有更强的拓展性。
 
-###**例子：**
+### 例子：
 
 
 **（1）定义属性**
@@ -238,7 +238,7 @@
 
 
 
-###1.3 重写View来实现全新的空间
+### 1.3 重写View来实现全新的空间
 
 通常需要继承View类，并重写onDraw()、onMeasure()等方法来实现绘制逻辑，同时可以重写onTouchEvent()等触控事件来实现交互逻辑。
 
@@ -248,8 +248,95 @@
 
 ----------
 
+#事件拦截机制分析
+2017/6/29 星期四 下午 8:36:41 
 
+Android的View结构是树形结构，也就是说，View可以放在ViewGroup里面，通过不同的组合来实现不同样式。那么问题就是，View放在一个ViewGroup里面，这个ViewGroup又放在另外一个ViewGroup里面，甚至还可能继续嵌套，一层一层的叠加起来。可是，触摸事件就一个，对于同一个事件，子View和父ViewGroup都有可能想要进行处理，这样就很有必要对事件拦截机制进行分析。
 
+1、对于事件拦截机制分析，主要设置三个方法：
 
+- 事件分发
+- 事件拦截
+- 事件处理
 
+    
+    	//事件分发
+    	@Override
+    	public boolean dispatchTouchEvent(MotionEvent ev) {
+    		// TODO Auto-generated method stub
+    		return super.dispatchTouchEvent(ev);
+    	}
+    	//事件拦截:true,拦截，不继续；false，不拦截，继续流程；默认false
+    	@Override
+    	public boolean onInterceptTouchEvent(MotionEvent ev) {
+    		// TODO Auto-generated method stub
+    		return super.onInterceptTouchEvent(ev);
+    	}
+    	//事件处理：true，不进行传递给上一级ViewGroup；false，报告给上一级父控件；默认false
+    	@Override
+    	public boolean onTouchEvent(MotionEvent event) {
+    		// TODO Auto-generated method stub
+    		return super.onTouchEvent(event);
+    	}
+
+2、运行流程
+
+如果ViewGroupA 包含 ViewGroupB，而ViewGroupB 包含一个子View。如下图所示：
+![](http://i.imgur.com/H95ovxD.png)
+
+（1）第一种情况：事件分发，事件拦截和事件处理都是默认false，不进行处理。
+
+	运行的流程大致是：
+		ViewGroupA dispatchTouchEvent  --> 
+		ViewGroupA onInterceptTouchEvent  --> 
+		ViewGroupB dispatchTouchEvent --> 
+		ViewGroupB onInterceptTouchEvent  --> 
+		View dispatchTouchEvent  --> 
+		View onTouchEvent -->
+		ViewGroupB onTouchEvent  -->
+		ViewGroupA onTouchEvent
 	
+（2）第二种情况：把ViewGroupA 的onInterceptTouchEvent（）的方法返回值改为true，其他默认；
+
+	运行的流程大致是：
+		ViewGroupA dispatchTouchEvent  --> 
+		ViewGroupA onInterceptTouchEvent  --> 
+		ViewGroupA onTouchEvent
+	
+	从上述流程可以看到，ViewGroupA直接把事件拦截掉了，不让它所包含的 子ViewGroupB 和 子View 进行事件处理，直接自己（ViewGroupA）的onTouchEvent()事件就处理了。
+
+（3）第三种情况：把ViewGroupB 的onInterceptTouchEvent（）的方法返回值改为true，其他默认；
+
+	运行的流程大致是：
+		ViewGroupA dispatchTouchEvent  --> 
+		ViewGroupA onInterceptTouchEvent  --> 
+		ViewGroupB dispatchTouchEvent --> 
+		ViewGroupB onInterceptTouchEvent  -->
+		ViewGroupB onTouchEvent  -->
+		ViewGroupA onTouchEvent 
+	
+	从上述流程来看，ViewGroupB把事件拦截下来了，不让 子View 进行事件处理，自己（ViewGroupB）处理掉了，然后把处理报告给 父ViewGroupA 处理了。
+
+（4）第四种情况：把 子View 的onTouchEvent（）直接返回true，其他的默认。
+
+	运行的流程大致是：
+		ViewGroupA dispatchTouchEvent  --> 
+		ViewGroupA onInterceptTouchEvent  --> 
+		ViewGroupB dispatchTouchEvent --> 
+		ViewGroupB onInterceptTouchEvent  --> 
+		View dispatchTouchEvent  --> 
+		View onTouchEvent
+
+	从上述流程可以来看，进行到 子View 处理事件，就不再上报到 父ViewGroupB 和 祖父ViewGroupA处理了。
+
+（5）第五种情况：把 子ViewGroupB 的onTouchEvent（）直接返回true，其他的默认。
+		
+	ViewGroupA dispatchTouchEvent  --> 
+		ViewGroupA onInterceptTouchEvent  --> 
+		ViewGroupB dispatchTouchEvent --> 
+		ViewGroupB onInterceptTouchEvent  --> 
+		View dispatchTouchEvent  --> 
+		View onTouchEvent -->
+		ViewGroupB onTouchEvent
+
+	从上述流程来看，ViewGroupB 处理完事件后不再上报给 父ViewGroupA 再去处理了。
