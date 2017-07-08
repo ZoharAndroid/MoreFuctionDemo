@@ -1,6 +1,9 @@
 package com.zzh.functiondemo;
 
 import android.app.Activity;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RectF;
 import android.os.Bundle;
 import android.view.Window;
 import android.widget.Toast;
@@ -11,8 +14,8 @@ import com.zzh.functiondemo.view.TopBar.topbarClickListener;
 /**
  * 
  * @author zzh
- * @Ê±¼ä 2017-6-29  ÉÏÎç11:14:51
- * @ÃèÊö TODO
+ * @æ—¶é—´ 2017-7-1  ä¸‹åˆ3:48:04
+ * @æè¿° ä¸»é¡µé¢
  */
 public class MainActivity extends Activity {
 
@@ -25,20 +28,27 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         initView();
         initData();
-       
+        processView();
     }
+
+	/**
+	 * å¤„ç†å›¾åƒå’Œç”»ç¬”
+	 */
+	private void processView() {
+		
+	}
 
 	private void initData() {
 		 mTopbar.setOnTopbarClickListener(new topbarClickListener() {
 				
 				@Override
 				public void rightClick() {
-					Toast.makeText(MainActivity.this, "·µ»Ø", 0).show();
+					Toast.makeText(MainActivity.this, "ï¿½ï¿½ï¿½ï¿½", 0).show();
 				}
 				
 				@Override
 				public void leftClick() {
-					Toast.makeText(MainActivity.this, "¸ü¶à", 0).show();
+					Toast.makeText(MainActivity.this, "ï¿½ï¿½ï¿½ï¿½", 0).show();
 				}
 			});		
 	}

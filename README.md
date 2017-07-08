@@ -398,3 +398,185 @@ Android的View结构是树形结构，也就是说，View可以放在ViewGroup�
     		return (int) (spValues * scaledDensity +0.5f);
     	}
     }
+
+
+#2D绘图基础
+2017/7/1 星期六 下午 4:11:36 
+
+##Paint
+		Paint paint = new Paint();
+		//设置画笔类型：实心还是空心；参数有三种：STROKE,FILL,FILL_AND_STROKE
+		paint.setStyle(Paint.Style.STROKE);
+		
+		//设置画笔的锯齿效果
+		paint.setAntiAlias(true);
+		
+		//设置画笔的A R G B 值
+		paint.setARGB(int a, int r,int g,int b);
+		
+		//设置画笔的Alpha值
+		paint.setAlpha(int a);
+		
+		//设置字体的大小
+		paint.setTextSize(float textSize);
+		
+		//设置空心边框的宽度
+		paint.setStrokeWidth(float width);
+
+##Canvas
+		Canvas canvas = new Canvas();
+		//绘制点
+		canvas.drawPoint(float x,float y,Paint paint);
+		
+		//绘制线
+		canvas.drawLine(float startX,float startY,float stopX,float stopY,Paint paint);
+		
+		//绘制多条直线
+		float pts[]={startX1,startY1,stopX1,stopY1,
+					startX2,startY2,stopX2,stopY2,
+					...
+					startXn,startYn,stopXn,stopYn
+		}
+		canvas.drawLines(float[] pts,Paint paint);
+		
+		
+		//绘制圆形
+		canvas.drawCircle(cx, cy, radius, paint);
+		
+		//绘制矩形/圆角矩形
+		RectF rect = new RectF(left, top, right, bottom);
+		canvas.drawRect(RectF rect, paint);
+		canvas.drawRoundRect(RectF rect, rx, ry, paint);
+		
+		//绘制弧形和扇形
+		RectF oval = new RectF(left, top, right, bottom);
+		canvas.drawArc(RectF oval, startAngle, sweepAngle, useCenter, paint);
+		
+		//绘制椭圆
+		RectF oval = new RectF(left, top, right, bottom);
+		canvas.drawOval(RectF oval,Paint paint)
+		
+
+		//绘制文本
+		canvas.drawText(text, stopX, stopY, paint);
+
+
+#Shape 文件中参数全解
+	<?xml version="1.0" encoding="utf-8"?>
+	<!-- 
+ 	android:shape=["rectangle" | "oval" | "line" | "ring"]
+ 	shape的形状，默认为矩形，可以设置为矩形（rectangle）、椭圆形(oval)、线性形状(line)、环形(ring)
+ 	
+  	下面的属性只有在android:shape="ring时可用：
+  		android:innerRadius 		尺寸，内环的半径。
+  		android:innerRadiusRatio	浮点型，以环的宽度比率来表示内环的半径，
+  		例如，
+  		  如果android:innerRadiusRatio，表示内环半径等于环的宽度除以5，这个值是可以被覆盖的，默认为9.
+  		android:thickness			尺寸，环的厚度
+  		android:thicknessRatio		浮点型，以环的宽度比率来表示环的厚度，例如，如果android:thicknessRatio="2"，那么环的厚度就等于环的宽度除以2。这个值是可以被android:thickness覆盖的，默认值是3.
+  		android:useLevel			boolean值，如果当做是LevelListDrawable使用时值为true，否则为false.
+  	-->
+	<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle" >
+    
+
+	----------
+ 	<!--
+     	圆角
+     	android:radius  			整型 半径
+    	android:topLeftRadius  		整型 左上角半径
+    	android:topRightRadius  	整型 右上角半径
+    	android:bottomLeftRadius 	整型 左下角半径
+    	android:bottomRightRadius 	整型 右下角半径
+     -->
+    <corners  
+        android:radius="integer"  
+        android:bottomLeftRadius="integer" 
+        android:bottomRightRadius="integer"
+        android:topLeftRadius="integer"
+        android:topRightRadius="integer" />
+    
+
+	----------
+     <!--
+     	渐变色
+     	android:startColor  颜色值 							起始颜色
+        android:endColor    颜色值 							结束颜色
+        android:centerColor 整型   							渐变中间颜色，即开始颜色与结束颜色之间的颜色
+        android:angle       整型   							渐变角度(PS：当angle=0时，渐变色是从左向右。 然后逆时针方向转，当angle=90时为从下往上。angle必须为45的整数倍)
+        android:type        ["linear" | "radial" | "sweep"] 渐变类型(取值：linear、radial、sweep)
+                            linear 线性渐变，这是默认设置
+                            radial 放射性渐变，以开始色为中心。
+                            sweep 扫描线式的渐变。
+       android:useLevel   	["true" | "false"] 				如果要使用LevelListDrawable对象，就要设置为true。设置为true无渐变。false有渐变色
+       android:gradientRadius 整型 							渐变色半径.当 android:type="radial" 时才使用。单独使用 android:type="radial"会报错。
+       android:centerX    	整型   							渐变中心X点坐标的相对位置
+       android:centerY   	整型   							渐变中心Y点坐标的相对位置
+    -->
+    <gradient 
+        android:startColor="color"  
+        android:centerColor="color" 
+        android:endColor="color"	
+        android:gradientRadius="integer"
+        android:centerY="integer"
+        android:centerX="integer"
+        android:type="[linear|radial|sweep]" 
+        android:angle="integer"
+        android:useLevel="[true|false]"/>
+    
+
+	----------
+    <!--
+     	内边距，即内容与边的距离 
+     	android:left  	整型 左内边距
+	    android:top   	整型 上内边距
+	    android:right  	整型 右内边距
+	    android:bottom 	整型 下内边距
+      -->
+    <padding 
+        android:left="integer"
+        android:top="integer"
+        android:right="integer"
+        android:bottom="integer"/>
+    
+
+	----------
+     <!-- 
+    	size 大小
+    	android:width 	整型 宽度
+    	android:height 	整型 高度
+    -->
+     <size 
+    android:width="integer"
+    android:height="integer"/>
+    
+
+	----------
+      <!--
+    	内部填充
+    	android:color 	颜色值 填充颜色
+   	  -->
+    <solid 
+        android:color="color"/>
+    
+
+	----------
+    <!--
+     	描边
+     	android:width 		整型 	描边的宽度
+    	android:color 		颜色值 	描边的颜色
+    	android:dashWidth 	整型 	表示描边的样式是虚线的宽度， 值为0时，表示为实线。值大于0则为虚线。
+    	android:dashGap  	整型 	表示描边为虚线时，虚线之间的间隔 即“ - - - - ”
+     -->
+    <stroke
+         android:width="integer"
+        android:color="color"
+        android:dashWidth="integer"
+        android:dashGap="integer"/>
+	</shape>
+
+#SurfaceView与View
+
+##SurfaceView与View的区别
+View通过刷新来重新绘制视图，Android系统通过发出VSYNC信号来进行屏幕的重新绘制，刷新时间间隔为16ms。如果执行的操作逻辑太多，会不断阻塞主线程，从而导致画面的卡顿。
+
