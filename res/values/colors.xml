@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#D33A31</color>
+    <color name="colorPrimaryDark">#e94140</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <!-- 默认背景灰色 -->
+    <color name="color_project_background">#e5e5e5</color>
+    <!--actionbar背景色-->
+    <color name="color_action_bar_Primary">#e94140</color>
+    <!-- 白色 -->
+    <color name="color_white">#ffffff</color>
+    <!-- 黑色 -->
+    <color name="color_black">#000000</color>
+    <!--灰色-->
+    <color name="color_dark">#B3B3B3</color>
+    <!--默认红色-->
+    <color name="color_default_red">#e94140</color>
+
+    <color name="color_red">#D33A31</color>
+</resources>

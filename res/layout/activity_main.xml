@@ -1,31 +1,11 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-  	xmlns:app="http://schemas.android.com/apk/res/com.zzh.functiondemo">
+    android:orientation="vertical"
+  	  android:background="@color/color_project_background">
 
-    <com.zzh.functiondemo.view.TopBar 
-        android:id="@+id/topbar"
-        android:layout_width="match_parent"
-        android:layout_height="40dip"
-        app:title="自定义标题栏"
-        app:titleTextSize="10sp"
-        app:titleTextColor="#123412"
-        
-        app:leftText="返回"
-        app:leftTextColor="@android:color/black"
-        app:leftBackground="#00ff00"
-        
-        app:rightText="更多"
-        app:rightTextColor="#ff0000"
-        app:rightBackground="#00ff00"
-        />
-    
-    <FrameLayout 
-        android:id="@+id/fl_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-       	
-        />
+    <include layout="@layout/layout_action_bar"/>
 
-</RelativeLayout>
+</LinearLayout>
+

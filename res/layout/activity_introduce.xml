@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- 引导页 -->
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_introduce"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="80dip" >
+
+        <!-- 索引点 -->
+        <LinearLayout
+            android:id="@+id/ll_point_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+
+        <View
+            android:id="@+id/point_select"
+            android:layout_width="10dip"
+            android:layout_height="10dip"
+            android:background="@drawable/shape_introduce_point_select" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="50dip"
+        android:orientation="horizontal" >
+
+
+        <TextView
+            android:maxLines="1"
+            android:id="@+id/tv_login_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_button_login"
+            android:clickable="true"
+            android:text="@string/introduce_login"
+            android:textColor="@color/color_white"
+            android:textSize="12sp" />
+        
+        
+        <TextView
+            android:textSize="12sp"
+            android:id="@+id/tv_experience"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/selector_button_look"
+            android:clickable="true"
+            android:text="@string/introduce_experience"
+            android:textColor="@drawable/selector_button_text_login" />
+    </LinearLayout>
+
+</FrameLayout>

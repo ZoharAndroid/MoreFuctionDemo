@@ -9,20 +9,6 @@ package com.zzh.functiondemo;
 
 public final class R {
     public static final class attr {
-        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
-"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-         */
-        public static final int leftBackground=0x7f010005;
-        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int leftText=0x7f010003;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -31,21 +17,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int leftTextColor=0x7f010004;
-        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
-"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-         */
-        public static final int rightBackground=0x7f010008;
-        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int rightText=0x7f010006;
+        public static final int backgroundColor=0x7f010002;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -54,15 +26,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int rightTextColor=0x7f010007;
-        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int title=0x7f010000;
+        public static final int endColor=0x7f010001;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -71,17 +35,40 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int titleTextColor=0x7f010002;
-        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
-Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
-in (inches), mm (millimeters).
+        public static final int startColor=0x7f010000;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int titleTextSize=0x7f010001;
+        public static final int textColor=0x7f010003;
+    }
+    public static final class color {
+        public static final int colorAccent=0x7f050002;
+        public static final int colorPrimary=0x7f050000;
+        public static final int colorPrimaryDark=0x7f050001;
+        /** actionbar背景色
+         */
+        public static final int color_action_bar_Primary=0x7f050004;
+        /**  黑色 
+         */
+        public static final int color_black=0x7f050006;
+        /** 灰色
+         */
+        public static final int color_dark=0x7f050007;
+        /** 默认红色
+         */
+        public static final int color_default_red=0x7f050008;
+        /**  默认背景灰色 
+         */
+        public static final int color_project_background=0x7f050003;
+        public static final int color_red=0x7f050009;
+        /**  白色 
+         */
+        public static final int color_white=0x7f050005;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -90,28 +77,66 @@ containing a value of this type.
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f040000;
-        public static final int activity_vertical_margin=0x7f040001;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int action_bar_back_icon=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int pb_background=0x7f020002;
+        public static final int selector_button_login=0x7f020003;
+        public static final int selector_button_look=0x7f020004;
+        public static final int selector_button_text_login=0x7f020005;
+        public static final int shape_button_see_style=0x7f020006;
+        public static final int shape_button_select_see_style=0x7f020007;
+        public static final int shape_button_select_style=0x7f020008;
+        public static final int shape_button_style=0x7f020009;
+        public static final int shape_introduce_point=0x7f02000a;
+        public static final int shape_introduce_point_select=0x7f02000b;
+        public static final int splash_image=0x7f02000c;
     }
     public static final class id {
-        public static final int action_settings=0x7f080002;
-        public static final int fl_content=0x7f080001;
-        public static final int topbar=0x7f080000;
+        public static final int action_settings=0x7f0a000b;
+        public static final int iv_action_bar_back=0x7f0a0005;
+        public static final int iv_pager=0x7f0a0009;
+        public static final int ll_point_container=0x7f0a0001;
+        public static final int pb_actiion_bar_progress=0x7f0a0007;
+        public static final int point_select=0x7f0a0002;
+        public static final int rl_action_bar_root=0x7f0a000a;
+        public static final int tv_action_bar_title=0x7f0a0006;
+        public static final int tv_experience=0x7f0a0004;
+        public static final int tv_login_register=0x7f0a0003;
+        public static final int vp_introduce=0x7f0a0000;
+        public static final int wv_content=0x7f0a0008;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int fragment_baidu_content=0x7f030001;
+        public static final int activity_introduce=0x7f040000;
+        public static final int activity_main=0x7f040001;
+        public static final int activity_splash=0x7f040002;
+        public static final int activity_web_progress_bar_content=0x7f040003;
+        public static final int fragment_baidu_content=0x7f040004;
+        public static final int introduce_view_pager=0x7f040005;
+        public static final int layout_action_bar=0x7f040006;
     }
     public static final class menu {
-        public static final int main=0x7f070000;
+        public static final int main=0x7f090000;
+    }
+    public static final class mipmap {
+        public static final int action_bar_back_icon=0x7f030000;
+        public static final int button_red_normal=0x7f030001;
+        public static final int ic_launcher=0x7f030002;
+        public static final int ic_launcher_round=0x7f030003;
+        public static final int introduce_1=0x7f030004;
+        public static final int introduce_2=0x7f030005;
+        public static final int introduce_3=0x7f030006;
+        public static final int splash_image=0x7f030007;
     }
     public static final class string {
-        public static final int action_settings=0x7f050001;
-        public static final int app_name=0x7f050000;
-        public static final int hello_world=0x7f050002;
+        public static final int action_settings=0x7f070001;
+        public static final int app_name=0x7f070000;
+        public static final int hello_world=0x7f070002;
+        public static final int introduce_experience=0x7f070004;
+        public static final int introduce_login=0x7f070003;
     }
     public static final class style {
         /** 
@@ -135,171 +160,11 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f080001;
+        public static final int EmptyTheme=0x7f080002;
     }
-    public static final class styleable {
-        /**  通过declare-styleable 标签生命了使用自定义属性，并通过name属性来确定引用的名称，最后通过attr
-    标签来声明具体的自定义属性 
-           <p>Includes the following attributes:</p>
-           <table>
-           <colgroup align="left" />
-           <colgroup align="left" />
-           <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #TopBar_leftBackground com.zzh.functiondemo:leftBackground}</code></td><td></td></tr>
-           <tr><td><code>{@link #TopBar_leftText com.zzh.functiondemo:leftText}</code></td><td></td></tr>
-           <tr><td><code>{@link #TopBar_leftTextColor com.zzh.functiondemo:leftTextColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #TopBar_rightBackground com.zzh.functiondemo:rightBackground}</code></td><td></td></tr>
-           <tr><td><code>{@link #TopBar_rightText com.zzh.functiondemo:rightText}</code></td><td></td></tr>
-           <tr><td><code>{@link #TopBar_rightTextColor com.zzh.functiondemo:rightTextColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #TopBar_title com.zzh.functiondemo:title}</code></td><td></td></tr>
-           <tr><td><code>{@link #TopBar_titleTextColor com.zzh.functiondemo:titleTextColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #TopBar_titleTextSize com.zzh.functiondemo:titleTextSize}</code></td><td></td></tr>
-           </table>
-           @see #TopBar_leftBackground
-           @see #TopBar_leftText
-           @see #TopBar_leftTextColor
-           @see #TopBar_rightBackground
-           @see #TopBar_rightText
-           @see #TopBar_rightTextColor
-           @see #TopBar_title
-           @see #TopBar_titleTextColor
-           @see #TopBar_titleTextSize
-         */
-        public static final int[] TopBar = {
-            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
-            0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007,
-            0x7f010008
-        };
-        /**
-          <p>This symbol is the offset where the {@link com.zzh.functiondemo.R.attr#leftBackground}
-          attribute's value can be found in the {@link #TopBar} array.
-
-
-          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
-"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          @attr name android:leftBackground
-        */
-        public static final int TopBar_leftBackground = 5;
-        /**
-          <p>This symbol is the offset where the {@link com.zzh.functiondemo.R.attr#leftText}
-          attribute's value can be found in the {@link #TopBar} array.
-
-
-          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:leftText
-        */
-        public static final int TopBar_leftText = 3;
-        /**
-          <p>This symbol is the offset where the {@link com.zzh.functiondemo.R.attr#leftTextColor}
-          attribute's value can be found in the {@link #TopBar} array.
-
-
-          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
-"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:leftTextColor
-        */
-        public static final int TopBar_leftTextColor = 4;
-        /**
-          <p>This symbol is the offset where the {@link com.zzh.functiondemo.R.attr#rightBackground}
-          attribute's value can be found in the {@link #TopBar} array.
-
-
-          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
-"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          @attr name android:rightBackground
-        */
-        public static final int TopBar_rightBackground = 8;
-        /**
-          <p>This symbol is the offset where the {@link com.zzh.functiondemo.R.attr#rightText}
-          attribute's value can be found in the {@link #TopBar} array.
-
-
-          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:rightText
-        */
-        public static final int TopBar_rightText = 6;
-        /**
-          <p>This symbol is the offset where the {@link com.zzh.functiondemo.R.attr#rightTextColor}
-          attribute's value can be found in the {@link #TopBar} array.
-
-
-          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
-"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:rightTextColor
-        */
-        public static final int TopBar_rightTextColor = 7;
-        /**
-          <p>This symbol is the offset where the {@link com.zzh.functiondemo.R.attr#title}
-          attribute's value can be found in the {@link #TopBar} array.
-
-
-          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:title
-        */
-        public static final int TopBar_title = 0;
-        /**
-          <p>This symbol is the offset where the {@link com.zzh.functiondemo.R.attr#titleTextColor}
-          attribute's value can be found in the {@link #TopBar} array.
-
-
-          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
-"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:titleTextColor
-        */
-        public static final int TopBar_titleTextColor = 2;
-        /**
-          <p>This symbol is the offset where the {@link com.zzh.functiondemo.R.attr#titleTextSize}
-          attribute's value can be found in the {@link #TopBar} array.
-
-
-          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
-Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
-in (inches), mm (millimeters).
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:titleTextSize
-        */
-        public static final int TopBar_titleTextSize = 1;
-    };
 }
